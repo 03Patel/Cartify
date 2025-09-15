@@ -5,7 +5,6 @@ import { Menu, X } from "lucide-react";
 
 
 function NavBar() {
-let data = useCart();
   const [cartView,setCartView] = useState(false)
 
   const [open, setOpen] = useState(false);
