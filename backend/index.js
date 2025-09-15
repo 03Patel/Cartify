@@ -8,7 +8,7 @@ db();
 
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://hellcart.onrender.com',
     credentials: true
 }));
 app.use(express.json());
