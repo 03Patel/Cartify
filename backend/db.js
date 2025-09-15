@@ -7,7 +7,7 @@ const MongooseUrl ="mongodb+srv://bit21cs51:812mWTeopLsUQ04e@cartify.kt7cddb.mon
 
 const db = async () => {
   try {
-    await mongoose.connect("mongodb+srv://bit21cs51:Ganesh8840@cartify.kt7cddb.mongodb.net/", {
+    await mongoose.connect("mongodb+srv://bit21cs51:mDmCB1g5tEafImqo@cartify.kt7cddb.mongodb.net/?retryWrites=true&w=majority&appName=CartiFy", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
