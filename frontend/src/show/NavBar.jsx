@@ -47,10 +47,7 @@ let data = useCart();
               </>
             ) : (
               <>
-                 <button className='bg-white text-red-600 px-4 py-2 rounded hover:bg-gray-100' onClick={() => {setCartView(true)}} >My Cart{" "}
-                                {/* <Badge pill bg='danger'>{data.length}</Badge> */}
-                            </button>
-                            {cartView ?<Modal  onClose={()=> setCartView()}><Cart/></Modal>:null}
+                 
                 <button onClick={handleLogoutClick} className="bg-white text-red-600 px-4 py-2 rounded hover:bg-gray-100">Log Out</button>
               </>
             )}
@@ -68,10 +65,6 @@ let data = useCart();
               </>
             ) : (
               <>
-             <button className='hover:text-gray-200'  >My Cart
-                                {/* <Badge pill bg='danger'>{data.length}</Badge> */}
-                            </button>
-                            {/* {cartView ?<Modal  onClose={()=> setCartView()}><Cart/></Modal>:null} */}
                 <button onClick={handleLogoutClick} className="hover:text-gray-200">Log Out</button>
               </>
             )}
