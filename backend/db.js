@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 
 const app = express();
 //812mWTeopLsUQ04e
-const MongooseUrl ="mongodb+srv://bit21cs51:812mWTeopLsUQ04e@cartify.kt7cddb.mongodb.net/?retryWrites=true&w=majority&appName=CartiFy";
+const MongooseUrl ="mongodb+srv://bit21cs51:fGKQNSjK5WrWanKU@cartify.kt7cddb.mongodb.net/";
 
 const db = async () => {
   try {
-    await mongoose.connect("mongodb+srv://bit21cs51:mDmCB1g5tEafImqo@cartify.kt7cddb.mongodb.net/?retryWrites=true&w=majority&appName=CartiFy", {
+    await mongoose.connect(MongooseUrl, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
