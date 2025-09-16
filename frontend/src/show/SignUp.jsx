@@ -35,7 +35,7 @@ function SignUp() {
 
       if (json.success) {
         alert("User Create Sucessfully")
-        navigate("/login");
+        navigate("/loginuser");
       } else {
         alert("Failed to create user")
       }
