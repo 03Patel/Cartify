@@ -7,39 +7,35 @@ const bcrypt = require("bcryptjs");
 const jwtSecret = "mynameisganeshjipateliambuildingaloginbutton"
 
 //password : 
-router.post("/createuser", async (req, res) => {
-  try {
-    const { name, email, password } = req.body;
-
-    // Validate input
-    if (!name || !email || !password) {
-      return res.json({ success: false, message: "All fields are required" });
+router.post("/createuser",
+  [
+    body("name").isLength({ min: 5 }),
+    body("password").isLength({ min: 6 }),
+    body("email").isEmail()
+  ],
+  async (req, res) => {
+    const error = validationResult(req);
+    if (!error.isEmpty()) {
+      return res.status(400).json({ error: error.array() });
     }
 
-    // Check if user already exists
-    let existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.json({ success: false, message: "User already exists" });
+    try {
+      const salt = await bcrypt.genSalt(10);
+      let secPassword = await bcrypt.hash(req.body.password, salt);
+
+      await User.create({
+        name: req.body.name,
+        email: req.body.email,
+        password: secPassword
+      });
+
+      res.json({ success: true });
+    } catch (err) {
+      console.error("❌ Signup Error:", err); // ✅ Full error log
+      res.status(500).json({ success: false, message: err.message }); // ✅ Send real error
     }
-
-    // Hash password
-    const salt = await bcrypt.genSalt(10);
-    const secPassword = await bcrypt.hash(password, salt);
-
-    // Save new user
-    const newUser = new User({
-      name,
-      email,
-      password: secPassword
-    });
-    await newUser.save();
-
-    res.json({ success: true, message: "User created successfully" });
-  } catch (err) {
-    console.error("❌ Signup Error:", err.message);
-    res.status(500).json({ success: false, message: "Server error" });
   }
-});
+);
 
 router.post("/loginuser", [
        body("password").isLength({ min: 6 }),
