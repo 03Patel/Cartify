@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const MongooseUrl = "mongodb+srv://bit21cs51:fGKQNSjK5WrWanKU@cartify.kt7cddb.mongodb.net/?retryWrites=true&w=majority";
+const MongooseUrl = "mongodb+srv://bit21cs51:fGKQNSjK5WrWanKU@cartify.kt7cddb.mongodb.net/Cartify";
 
 const db = async () => {
   try {
