@@ -31,7 +31,7 @@ function SignUp() {
         })
       });
       const json = await response.json();
-      console.log(json);
+
 
       if (json.success) {
         alert("User Create Sucessfully")
@@ -40,7 +40,7 @@ function SignUp() {
         alert("Failed to create user")
       }
     } catch (error) {
-      console.error("signup Error: ", error)
+ 
       alert("Something went wrong!");
     }
 
