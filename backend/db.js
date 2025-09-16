@@ -1,9 +1,6 @@
-const express = require('express');
 const mongoose = require('mongoose');
 
-const app = express();
-//812mWTeopLsUQ04e
-const MongooseUrl ="mongodb+srv://bit21cs51:fGKQNSjK5WrWanKU@cartify.kt7cddb.mongodb.net/";
+const MongooseUrl = "mongodb+srv://bit21cs51:fGKQNSjK5WrWanKU@cartify.kt7cddb.mongodb.net/Cartify?retryWrites=true&w=majority";
 
 const db = async () => {
   try {
